@@ -13,6 +13,7 @@ public class PersonTest {
     Person testPerson = new Person("Henry", "henry@henry.com");
     assertEquals(true, testPerson instanceof Person);
   }
+
   @Test
   public void getName_personInstantiatesWithName_Henry() {
     Person testPerson = new Person("Henry", "henry@henry.com");
@@ -27,15 +28,16 @@ public class PersonTest {
 
   @Test
   public void equals_returnsTrueIfNameAndEmailAreSame_true() {
-   Person firstPerson = new Person("Henry", "henry@henry.com");
-   Person anotherPerson = new Person("Henry", "henry@henry.com");
-   assertTrue(firstPerson.equals(anotherPerson));
- }
- @Test
+    Person testPerson = new Person("Henry", "henry@henry.com");
+    Person anotherPerson = new Person("Henry", "henry@henry.com");
+    assertTrue(testPerson.equals(anotherPerson));
+  }
+
+  @Test
   public void save_insertsObjectIntoDatabase_Person() {
     Person testPerson = new Person("Henry", "henry@henry.com");
     testPerson.save();
-    assertTrue(Person.all().get(0).equals(testPerson));
+    assertEquals(true, Person.all().get(0).equals(testPerson));
   }
 
   @Test
@@ -56,24 +58,16 @@ public class PersonTest {
     assertEquals(testPerson.getId(), savedPerson.getId());
   }
 
-  @Test
-  public void find_returnsPersonWithSameId_secondPerson() {
-    Person firstPerson = new Person("Henry", "henry@henry.com");
-    firstPerson.save();
-    Person secondPerson = new Person("Harriet", "harriet@harriet.com");
-    secondPerson.save();
-    assertEquals(Person.find(secondPerson.getId()), secondPerson);
-  }
+  // @Test
+  // public void getMonsters_retrievesAllMonstersFromDatabase_monstersList() {
+  //   Person testPerson = new Person("Henry", "henry@henry.com");
+  //   testPerson.save();
+  //   Monster firstMonster = new Monster("Bubbles", testPerson.getId());
+  //   firstMonster.save();
+  //   Monster secondMonster = new Monster("Spud", testPerson.getId());
+  //   secondMonster.save();
+  //   Monster[] monsters = new Monster[] { firstMonster, secondMonster };
+  //   assertTrue(testPerson.getMonsters().containsAll(Arrays.asList(monsters)));
+  // }
 
-  @Test
-  public void getMonsters_retrievesAllMonstersFromDatabase_monstersList() {
-    Person testPerson = new Person("Henry", "henry@henry.com");
-    testPerson.save();
-    Monster firstMonster = new Monster("Bubbles", testPerson.getId());
-    firstMonster.save();
-    Monster secondMonster = new Monster("Spud", testPerson.getId());
-    secondMonster.save();
-    Monster[] monsters = new Monster[] { firstMonster, secondMonster };
-    assertTrue(testPerson.getMonsters().containsAll(Arrays.asList(monsters)));
-  }
 }
