@@ -13,7 +13,7 @@ This is a web application that allows users to adopt a digital pet.
 You will need [gradle](https://gradle.org/gradle-download/) and Postgres installed on your device.
 
 Enter the following commands in your terminal:
-* `$ git clone https://github.com/sheenanick/java-virtual-pets` to clone this repository
+* `$ git clone https://github.com/sheenanick/virtual-pets` to clone this repository
 * `$ postgres` to start the Postgres server
 * Navigate to the project directory and `$ gradle run` to run the application
 
